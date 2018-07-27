@@ -35,11 +35,11 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
     <!-- == SOFTWARE SPECIFIC SECTION == -->
     <!-- This section is about the software itself -->
     <title>gopass (Install)</title>
-    <authors>gopasspw</authors>
+    <authors>JustWatch GmbH</authors>
     <!-- projectUrl is required for the community feed -->
     <projectUrl>https://github.com/gopasspw/gopass</projectUrl>
     <iconUrl>https://github.com/gopasspw/gopass/raw/master/logo.png</iconUrl>
-    <copyright>2018</copyright>
+    <copyright>Copyright 2017 JustWatch GmbH</copyright>
     <!-- If there is a license Url available, it is required for the community feed -->
     <licenseUrl>https://github.com/gopasspw/gopass/blob/master/LICENSE</licenseUrl>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
