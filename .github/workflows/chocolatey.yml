@@ -1,0 +1,29 @@
+name: choco_install_verification
+
+on:
+  push:
+    branches:
+      - 'master'
+  pull_request:
+    branches:
+      - 'master'
+
+jobs:
+  ci:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Choco pack
+        uses: ./
+        with:
+          args: pack
+      - name: Choco install gopass
+        uses: ./
+        with:
+          args: install .\gopass.1.14.10.nupkg --no-progress
