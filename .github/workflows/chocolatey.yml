@@ -1,0 +1,30 @@
+name: Chocolatey gopass installation test
+run-name: ${{ github.actor }} is testing the chocolatey installation of gopass 🚀
+
+on:
+  push:
+    branches:
+      - 'master'
+  pull_request:
+    branches:
+      - 'master'
+
+jobs:
+  choco_install_verification:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os:
+          - windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Choco pack gopass
+        uses: crazy-max/ghaction-chocolatey@v2
+        with:
+          args: pack
+      - name: Choco install gopass
+        uses: crazy-max/ghaction-chocolatey@v2
+        with:
+          args: install .\gopass.nuspec --no-progress --pre
+
