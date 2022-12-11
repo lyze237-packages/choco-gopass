@@ -26,7 +26,7 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
     <!-- version should MATCH as closely as possible with the underlying software -->
     <!-- Is the version a prerelease of a version? https://docs.nuget.org/create/versioning#creating-prerelease-packages -->
     <!-- Note that unstable versions like 0.0.1 can be considered a released version, but it's possible that one can release a 0.0.1-beta before you release a 0.0.1 version. If the version number is final, that is considered a released version and not a prerelease. -->
-    <version>1.14.10</version>
+    <version>1.15.1</version>
     <packageSourceUrl>https://github.com/lyze237/GopassChoco</packageSourceUrl>
     <!-- owners is a poor name for maintainers of the package. It sticks around by this name for compatibility reasons. It basically means you. -->
     <owners>lyze</owners>
@@ -50,7 +50,7 @@ This is a nuspec. It mostly adheres to https://docs.nuget.org/create/Nuspec-Refe
     <tags>gopass password manager</tags>
     <summary>The slightly more awesome standard unix password manager for teams</summary>
     <description>gopass is a rewrite of the pass password manager in Go with the aim of making it cross-platform and adding additional features. Our target audience are professional developers and sysadmins (and especially teams of those) who are well versed with a command line interface. One explicit goal for this project is to make it more approachable to non-technical users. We go by the UNIX philosophy and try to do one thing and do it well, providing a stellar user experience and a sane, simple interface.</description>
-    <releaseNotes>https://github.com/gopasspw/gopass/releases/tag/v1.14.10</releaseNotes>
+    <releaseNotes>https://github.com/gopasspw/gopass/releases/tag/v1.15.1</releaseNotes>
     <!-- =============================== -->      
 
     <!-- Specifying dependencies and version ranges? https://docs.nuget.org/create/versioning#specifying-version-ranges-in-.nuspec-files -->
