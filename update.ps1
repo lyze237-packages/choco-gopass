@@ -24,16 +24,15 @@ $version = $json.tag_name.Replace("v", "")
 $prerelease = $json.prerelease
 $asset = Get-Asset $response
 
-Write-Host "Checking if we need to build a new version for $version"
-Write-Host "Building current version to see what version we're on"
-$packedFile = choco pack | Out-String
-
 if ($prerelease) {
     Write-Host "Current version is a pre-release, nothing to do"
     exit
 }
 
-if ($packedFile.Contains($version)) {
+Write-Host "Checking server version to see if we need to build a new version for $version"
+$serverFile = choco search -e gopass | Out-String
+
+if ($serverFile.Contains($version)) {
     Write-Host "We're on the same version, nothing to do"
     exit
 }
@@ -57,4 +56,17 @@ if ($? -eq $false) {
     exit -1
 }
 
-choco push -s https://push.chocolatey.org/
+choco uninstall -y gopass
+choco install -y gopass -s .
+
+if ($? -eq $false) {
+    Write-Host "Test install was unsuccesful"
+    exit -2
+}
+
+$newVersion = gopass -v | Out-String
+if ($newVersion.Contains($version)) {
+    Write-Host "New version install successful"
+
+    choco push -s https://push.chocolatey.org/
+}
