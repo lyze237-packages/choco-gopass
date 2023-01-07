@@ -30,10 +30,10 @@ if ($prerelease) {
 }
 
 Write-Host "Checking server version to see if we need to build a new version for $version"
-$serverFile = choco search -e gopass | Out-String
+$serverFile = choco find -e gopass --version $version | Out-String
 
 if ($serverFile.Contains($version)) {
-    Write-Host "We're on the same version, nothing to do"
+    Write-Host "Server knows about the current version, nothing to do"
     exit
 }
 
@@ -67,6 +67,7 @@ if ($? -eq $false) {
 $newVersion = gopass -v | Out-String
 if ($newVersion.Contains($version)) {
     Write-Host "New version install successful"
+    Write-Host "This script is currently in testing, therefore doesn't upload the package automatically"
 
-    choco push -s https://push.chocolatey.org/
+    # choco push -s https://push.chocolatey.org/
 }

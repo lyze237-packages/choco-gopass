@@ -1,0 +1,16 @@
+name: Update gopass chocolatey package
+
+on:
+  push:
+    branches:
+      - 'master'
+  schedule:
+    - cron:  '20 3 * * *'
+
+jobs:
+  update:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v3
+      
+      - run: ./update.ps1
