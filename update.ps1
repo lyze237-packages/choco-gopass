@@ -17,7 +17,7 @@ function Get-Asset {
     }
 }
 
-$response = Invoke-WebRequest -Uri https://api.github.com/repos/gopasspw/gopass/releases/latest -UseBasicParsing
+$response = Invoke-WebRequest -Uri https://api.github.com/repos/gopasspw/gopass/releases/latest -UseBasicParsing -Headers @{"Authorization" = "Bearer $Env:GITHUB_TOKEN"}
 $json = $response.Content | ConvertFrom-Json 
 
 $version = $json.tag_name.Replace("v", "")
