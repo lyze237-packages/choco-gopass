@@ -69,5 +69,6 @@ if ($newVersion.Contains($version)) {
     Write-Host "New version install successful"
     Write-Host "This script is currently in testing, therefore doesn't upload the package automatically"
 
-    # choco push -s https://push.chocolatey.org/
+    choco apikey --key $Env:CHOCO_API_KEY --source https://push.chocolatey.org/
+    choco push -s https://push.chocolatey.org/
 }
